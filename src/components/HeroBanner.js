@@ -25,13 +25,15 @@ function HeroBanner(){
         }}>
             Explore Exercises
         </Button>
+        <Box position="relative">
         <Typography  sx={{
             fontSize:{lg:"200px", xs:"100px"},
             opacity:"0.1",
             display:{lg:"block", xs:"none"}
-        }} fontWeight="600" color="#FF2625" mt="25px">
+        }} fontWeight="600" color="#FF2625" mt="25px" position="absolute" zIndex="10">
             Exercises
         </Typography>
+        </Box>
         <img src={HeroBannerImage} alt="banner" className="hero-banner-img"/>
     </Box>
 }

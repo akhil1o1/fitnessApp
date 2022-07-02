@@ -42,7 +42,8 @@ function SearchExercises({setExercises, bodyPart, setBodyPart}){
     
 
 
-    return <Stack alignItems="center" justifyContent="center" p="20px">
+    return <Stack alignItems="center" justifyContent="center" p="20px" 
+    sx={{mt:{lg:"300px"}}}>
     <Typography 
     fontWeight="700" 
     sx={{
