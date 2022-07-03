@@ -67,7 +67,7 @@ function SearchExercises({setExercises, bodyPart, setBodyPart}){
         height="76px"
         value={search}
         onChange={handleChange}
-        placeholder="search exercises"
+        placeholder="search exercises by body part, equipment or target muscle"
         type="text"
         />
         <Button className="search-btn" 
