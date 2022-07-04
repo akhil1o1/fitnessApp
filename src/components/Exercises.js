@@ -7,10 +7,10 @@ import ExerciseCard from "./ExerciseCard";
 
 function Exercises ({setExercises, bodyPart, exercises}){
 
-    console.log(exercises);
+    
     const[currentPage, setCurrentPage] = useState(1);
+    
     const exercisePerPage = 9;
-
     const indexOfLastExercise = currentPage * exercisePerPage;
     const indexOfFirstExercise = indexOfLastExercise - exercisePerPage;
     const currentExercise = exercises.slice(indexOfFirstExercise, indexOfLastExercise);
@@ -18,7 +18,24 @@ function Exercises ({setExercises, bodyPart, exercises}){
     function paginate(event, value){
             setCurrentPage(value);
             window.scrollTo({top:1800, behavior:"smooth"})
-    }
+    };
+
+    useEffect(()=>{
+        const fetchExercisesData = async ()=>{
+            let exercisesData = [];
+            if(bodyPart==="all"){
+                 exercisesData = await fetchData("https://exercisedb.p.rapidapi.com/exercises", exerciseOptions);
+            }else{
+                exercisesData = await fetchData(`https://exercisedb.p.rapidapi.com/exercises/bodyPart/${bodyPart}`, exerciseOptions);
+                console.log(exercisesData);
+            }
+            
+            setExercises(exercisesData);
+        }
+
+        fetchExercisesData();
+    },[bodyPart]);
+
 
     return <Box id="exercises" 
     sx={{
@@ -26,7 +43,7 @@ function Exercises ({setExercises, bodyPart, exercises}){
         mt="50px"
         p="20px">
         <Typography variant="h3" mb="46px" textAlign="center">
-        Showing results
+        Showing results for {bodyPart==="all" ? "all exercises" : bodyPart }
         </Typography>
 
         <Stack direction="row"
