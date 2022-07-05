@@ -24,7 +24,6 @@ function Home(){
             setExercises={setExercises}
             bodyPart={bodyPart}
         />
-        <Footer/>
     </Box>
 }
 
