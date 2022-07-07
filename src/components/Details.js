@@ -7,8 +7,8 @@ import equipmentImage from "../assets/icons/equipment.png";
 
 
 
-function Details({exerciseDetails}){
-    const {bodyPart, gifUrl, equipment, name, target} = exerciseDetails;
+function Details({exerciseDetail}){
+    const {bodyPart, gifUrl, equipment, name, target} = exerciseDetail;
     const extraDetails = [
     {
         icon:bodyPartImage,
@@ -31,7 +31,7 @@ function Details({exerciseDetails}){
     {name}
     </Typography>
     <Typography variant="h6" >
-    Exercises keep you strong. <strong>{name}</strong> is one of the best exercise to target your <strong>{target}</strong>. It will help you improve your mood and gain energy. 
+    Exercises keep you strong. <span style={{color:"#ff2526", textTransform:"capitalize", fontWeight:"bold"}}>{name}</span> is one of the best exercise to target your <span style={{color:"#ff2526", textTransform:"capitalize", fontWeight:"bold"}}>{target}</span>. It will help you improve your mood and gain energy. 
     </Typography>
     {extraDetails.map((item)=>{
         return <Stack key={item.name} gap="24px" direction="row" alignItems="center">

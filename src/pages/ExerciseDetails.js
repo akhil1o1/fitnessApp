@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import {useParams} from "react-router-dom";
 import {Box} from "@mui/material";
-import {fetchData, exerciseOptions} from "../utils/fetchData";
+import {fetchData, exerciseOptions, youtubeOptions} from "../utils/fetchData";
 import Details from "../components/Details";
 import ExerciseVideos from "../components/ExerciseVideo";
 import SimilarExercises from "../components/SimilarExercises";
@@ -9,16 +9,20 @@ import SimilarExercises from "../components/SimilarExercises";
 
 function ExerciseDetails(){
 
-    const [exerciseDetails, setExerciseDetails] = useState({});
-    const {id} = useParams();
+    const [exerciseDetail, setExerciseDetail] = useState({});
+    const [exerciseVideos, setExerciseVideos] = useState([]);
+    const {id} = useParams();//it will find exercise id appended to url
+
 
     useEffect(()=>{
         const fetchExerciseData = async ()=>{
-            const youtubeSearchUrl = "https://youtube-search-and-download.p.rapidapi.com/video/related";
 
-            const exerciseData = await fetchData(`https://exercisedb.p.rapidapi.com/exercises/exercise/${id}`, exerciseOptions);
+            const exerciseDetailData = await fetchData(`https://exercisedb.p.rapidapi.com/exercises/exercise/${id}`, exerciseOptions);
+            setExerciseDetail(exerciseDetailData);
 
-            setExerciseDetails(exerciseData);
+            const exerciseVideosData = await fetchData(`https://youtube-search-and-download.p.rapidapi.com/search?query=${exerciseDetailData.name}`, youtubeOptions);
+            setExerciseVideos(exerciseVideosData.contents);
+            
         }
         fetchExerciseData();
     },[id])
@@ -26,9 +30,12 @@ function ExerciseDetails(){
     return (
         <Box>
             <Details
-                exerciseDetails={exerciseDetails}
+                exerciseDetail={exerciseDetail}
             />
-            <ExerciseVideos/>
+            <ExerciseVideos 
+                exerciseVideos={exerciseVideos}
+                exerciseName={exerciseDetail.name}
+            />
             <SimilarExercises/>
         </Box>
     )
