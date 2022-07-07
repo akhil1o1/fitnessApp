@@ -9,17 +9,18 @@ function ExerciseVideos({exerciseVideos, exerciseName}){
     </Typography>
     <Stack justifyContent="flex-start" flexWrap="wrap" alignItems="center"
     sx={{flexDirection:{lg:"row"},
-    gap:{lg:"110px", xs:"0"}}}>
-    {exerciseVideos?.slice(0, 3).map((item, index)=>(
+    marginTop:"50px",
+    gap:{lg:"30px", xs:"0"}}}>
+    {exerciseVideos? exerciseVideos.slice(0, 4).map((item, index)=>(
         <a 
         key={index}
         className="exercise-video"
-        href={`https://www.youtube.com/watch?v=${item.videoId}`}
+        href={`https://www.youtube.com/watch?v=${item.video.videoId}`}
         target="_blank"
         rel="noreferrer">
-        <img src={item.thumbnails[0].url} alt={item.title}/>
+        <img src={item.video.thumbnails[0].url} alt={item.video.title}/>
         </a>
-    ))}
+    )):null}
     </Stack>
          
     </Box>
