@@ -11,6 +11,7 @@ function ExerciseDetails(){
 
     const [exerciseDetail, setExerciseDetail] = useState({});
     const [exerciseVideos, setExerciseVideos] = useState([]);
+    const [similarExercises, setSimilarExercises] = useState([]);
     const {id} = useParams();//it will find exercise id appended to url
 
 
@@ -22,10 +23,14 @@ function ExerciseDetails(){
 
             const exerciseVideosData = await fetchData(`https://youtube-search-and-download.p.rapidapi.com/search?query=${exerciseDetailData.name}`, youtubeOptions);
             setExerciseVideos(exerciseVideosData.contents);
+
+            const similarTargetMuscleExercisesData = await fetchData(`https://exercisedb.p.rapidapi.com/exercises/target/${exerciseDetailData.target}`, exerciseOptions);
+            setSimilarExercises(similarTargetMuscleExercisesData);
+            console.log(similarTargetMuscleExercisesData);
             
         }
         fetchExerciseData();
-    },[id])
+    },[id]);
 
     return (
         <Box>

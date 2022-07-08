@@ -67,8 +67,8 @@ body {
   }
   
   .exercise-card {
-    width: 400px;
-    height: 445px;
+    width: 350px;
+    height: 420px;
     background: #fff;
     border-top: 4px solid #FF2625;
     border-bottom-left-radius: 20px;
@@ -82,7 +82,7 @@ body {
   }
   
   .exercise-card img {
-    height: 326px;
+    height: 320px;
   }
   
   .bodyPart-card {
@@ -107,6 +107,11 @@ body {
     width: 387px;
     height: 381px;
     text-decoration: none;
+  }
+
+  .exercise-video:hover{
+    transform: scale(1.05, 1.05);
+    transition: 0.2s all ease-in-out;
   }
   
   @media screen and (max-width:1200px) {

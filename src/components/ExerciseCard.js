@@ -13,7 +13,7 @@ function ExerciseCard({exercise}){
         {exercise.target}
         </Button>
         <Typography ml="21px" color="#000" textTransform="capitalize" fontSize="22px" fontWeight="bold" 
-        sx={{width:{lg:"400px"},mt:"11px",  pb:"10px" }}>
+        sx={{width:{lg:"300px"},mt:"11px",  pb:"10px" }}>
         {exercise.name}
         </Typography>
     </Link>)
