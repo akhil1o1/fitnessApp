@@ -39,7 +39,6 @@ function ExerciseDetails(){
 
     },[id]);
 
-
     return (
         <Box>
             <Details
