@@ -11,11 +11,13 @@ function ExerciseDetails(){
 
     const [exerciseDetail, setExerciseDetail] = useState({});
     const [exerciseVideos, setExerciseVideos] = useState([]);
-    const [similarExercises, setSimilarExercises] = useState([]);
+    const [similarTargetExercises, setSimilarTargetExercises] = useState([]);
+    const [similarEquipmentExercises, setSimilarEquipmentExercises] = useState([]);
     const {id} = useParams();//it will find exercise id appended to url
 
 
     useEffect(()=>{
+
         const fetchExerciseData = async ()=>{
 
             const exerciseDetailData = await fetchData(`https://exercisedb.p.rapidapi.com/exercises/exercise/${id}`, exerciseOptions);
@@ -25,11 +27,16 @@ function ExerciseDetails(){
             setExerciseVideos(exerciseVideosData.contents);
 
             const similarTargetMuscleExercisesData = await fetchData(`https://exercisedb.p.rapidapi.com/exercises/target/${exerciseDetailData.target}`, exerciseOptions);
-            setSimilarExercises(similarTargetMuscleExercisesData);
-            console.log(similarTargetMuscleExercisesData);
+            setSimilarTargetExercises(similarTargetMuscleExercisesData);
+            console.log("similarTargetMuscleExercisesData " + similarTargetMuscleExercisesData);
             
+            const similarEquipmentExercisesData = await fetchData(`https://exercisedb.p.rapidapi.com/exercises/equipment/${exerciseDetailData.equipment}`, exerciseOptions);
+            setSimilarEquipmentExercises(similarEquipmentExercisesData);
+            console.log("similarEquipmentExercisesData " +similarEquipmentExercisesData);  
         }
+
         fetchExerciseData();
+
     },[id]);
 
     return (
@@ -41,7 +48,10 @@ function ExerciseDetails(){
                 exerciseVideos={exerciseVideos}
                 exerciseName={exerciseDetail.name}
             />
-            <SimilarExercises/>
+            <SimilarExercises
+                similarTargetExercises={similarTargetExercises}
+                similarEquipmentExercises={similarEquipmentExercises}
+            />
         </Box>
     )
 }
