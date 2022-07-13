@@ -2,7 +2,7 @@ import React from "react";
 import {Box, Stack, Typography} from "@mui/material";
 
 function ExerciseVideos({exerciseVideos, exerciseName}){
-    console.log(exerciseVideos);
+ 
     return <Box sx={{marginTop:{lg:"200px", xs:"30px"}}} p="20px">
     <Typography variant="h2" mb="33px">
     Watch <span style={{color:"#ff2526", textTransform:"capitalize"}}>{exerciseName}</span> exercise videos

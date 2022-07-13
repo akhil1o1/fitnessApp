@@ -4,8 +4,15 @@ import HorizontalScrollBar from "./HorizontalScrollBar";
 
 
 function SimilarExercises({similarTargetExercises, similarEquipmentExercises}){
-    return <Box>
-            <h1>Similar Exercises</h1>
+    return <Box sx={{mt:{lg:"100px", xs:"0"}}}>
+            <Typography variant="h3">
+                Exercises that target the same muscle group
+            </Typography>
+            <Stack direction="row" sx={{p:"2", position:"relative"}}>
+            {similarTargetExercises.length && <HorizontalScrollBar
+                data={similarTargetExercises}
+            />}
+            </Stack>
     </Box>
 }
 

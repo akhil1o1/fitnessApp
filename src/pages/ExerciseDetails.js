@@ -14,6 +14,11 @@ function ExerciseDetails(){
     const [similarTargetExercises, setSimilarTargetExercises] = useState([]);
     const [similarEquipmentExercises, setSimilarEquipmentExercises] = useState([]);
     const {id} = useParams();//it will find exercise id appended to url
+    // console.log(exerciseDetail);
+    // console.log(exerciseVideos);
+    // console.log(similarTargetExercises);
+    // console.log(similarEquipmentExercises);
+
 
 
     useEffect(()=>{
@@ -28,11 +33,11 @@ function ExerciseDetails(){
 
             const similarTargetMuscleExercisesData = await fetchData(`https://exercisedb.p.rapidapi.com/exercises/target/${exerciseDetailData.target}`, exerciseOptions);
             setSimilarTargetExercises(similarTargetMuscleExercisesData);
-            console.log("similarTargetMuscleExercisesData " + similarTargetMuscleExercisesData);
+            
             
             const similarEquipmentExercisesData = await fetchData(`https://exercisedb.p.rapidapi.com/exercises/equipment/${exerciseDetailData.equipment}`, exerciseOptions);
             setSimilarEquipmentExercises(similarEquipmentExercisesData);
-            console.log("similarEquipmentExercisesData " +similarEquipmentExercisesData);  
+             
         }
 
         fetchExerciseData();
