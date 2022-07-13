@@ -1,6 +1,5 @@
 import React, {useState, useEffect} from "react";
 import {Box, Stack, Typography, Button, TextField} from "@mui/material";
-import { borderRadius } from "@mui/system";
 import {exerciseOptions, fetchData} from "../utils/fetchData";
 import HorizontalScrollBar from "./HorizontalScrollBar";
 
@@ -90,6 +89,7 @@ function SearchExercises({setExercises, bodyPart, setBodyPart}){
         <HorizontalScrollBar data={bodyParts}
             bodyPart={bodyPart}
             setBodyPart={setBodyPart}
+            isBodyPart={true}
         />
     </Box>
     </Stack>

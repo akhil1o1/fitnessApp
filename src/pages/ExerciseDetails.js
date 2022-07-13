@@ -20,11 +20,11 @@ function ExerciseDetails(){
     // console.log(similarEquipmentExercises);
 
 
-
+    
     useEffect(()=>{
 
         const fetchExerciseData = async ()=>{
-
+           
             const exerciseDetailData = await fetchData(`https://exercisedb.p.rapidapi.com/exercises/exercise/${id}`, exerciseOptions);
             setExerciseDetail(exerciseDetailData);
 
