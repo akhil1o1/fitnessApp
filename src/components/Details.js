@@ -25,13 +25,15 @@ function Details({exerciseDetail}){
 ];
 
     return <Stack gap="60px" sx={{flexDirection:{lg:"row"}, p:"20px", alignItems:"center"}}>
-    <img src={gifUrl} alt={name} loading="lazy" className="detail-image"/>
+    <img src={gifUrl} alt={name} loading="lazy" className="detail-image"
+        sx={{ boxShadow:"rgba(149, 157, 165, 0.2) 0px 8px 24px"}}
+    />
     <Stack sx={{gap:{lg:"35px", xs:"20px"}}}>
     <Typography variant="h3" fontWeight="bold" textTransform="capitalize">
     {name}
     </Typography>
     <Typography variant="h6" >
-    Exercises keep you strong. <span style={{color:"#ff2526", textTransform:"capitalize", fontWeight:"bold"}}>{name}</span> is one of the best exercise to target your <span style={{color:"#ff2526", textTransform:"capitalize", fontWeight:"bold"}}>{target}</span>. It will help you improve your mood and gain energy. 
+    Exercises keep you strong. <span style={{color:"#61569d", textTransform:"capitalize", fontWeight:"bold"}}>{name}</span> is one of the best exercise to target your <span style={{color:"#61569d", textTransform:"capitalize", fontWeight:"bold"}}>{target}</span>. It will help you improve your mood and gain energy. 
     </Typography>
     {extraDetails.map((item)=>{
         return <Stack key={item.name} gap="24px" direction="row" alignItems="center">

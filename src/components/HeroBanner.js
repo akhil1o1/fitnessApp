@@ -1,14 +1,15 @@
 import React from "react";
-import {Box, Stack, Typography, Button} from "@mui/material";
+import {Box, Typography, Button} from "@mui/material";
 import HeroBannerImage from "../assets/images/banner.png";
+
 
 function HeroBanner(){
     return <Box sx={{
        mt:{lg:"212px", xs:"70px"},
        ml:{sm:"50px"},
     }} position="relative" p="20px">
-        <Typography color="#FF2625" fontWeight="600" fontSize="26px">
-            Fitness Club
+        <Typography color="#61569d" fontWeight="600" fontSize="26px">
+            Fitness World
         </Typography>
         <Typography fontWeight="700" sx={{
             fontSize:{lg:"44px", xs:"40px"},
@@ -20,7 +21,7 @@ function HeroBanner(){
             check out the most effective exercises.
         </Typography>
         <Button variant="contained" color="error" href="#exercises" sx={{
-            backgroundColor:"#FF2526",
+            backgroundColor:"#61569d",
             padding:"10px"
         }}>
             Explore Exercises
@@ -30,7 +31,7 @@ function HeroBanner(){
             fontSize:{lg:"200px", xs:"100px"},
             opacity:"0.1",
             display:{lg:"block", xs:"none"}
-        }} fontWeight="600" color="#FF2625" mt="25px" position="absolute" zIndex="10">
+        }} fontWeight="600" color="#61569d" mt="25px" position="absolute" zIndex="10">
             Exercises
         </Typography>
         </Box>
