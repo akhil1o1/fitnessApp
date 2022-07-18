@@ -34,6 +34,7 @@ function Exercises ({setExercises, bodyPart, exercises}){
         }
 
         fetchExercisesData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     },[bodyPart]);
 
 

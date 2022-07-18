@@ -1,6 +1,7 @@
 import React from "react";
 import {Typography, Stack, Button} from "@mui/material";
-
+import {nanoid} from "nanoid";
+ 
 import bodyPartImage from "../assets/icons/body-part.png";
 import targetImage from "../assets/icons/target.png";
 import equipmentImage from "../assets/icons/equipment.png";
@@ -36,7 +37,7 @@ function Details({exerciseDetail}){
     Exercises keep you strong. <span style={{color:"#61569d", textTransform:"capitalize", fontWeight:"bold"}}>{name}</span> is one of the best exercise to target your <span style={{color:"#61569d", textTransform:"capitalize", fontWeight:"bold"}}>{target}</span>. It will help you improve your mood and gain energy. 
     </Typography>
     {extraDetails.map((item)=>{
-        return <Stack key={item.name} gap="24px" direction="row" alignItems="center">
+        return <Stack key={nanoid()} gap="24px" direction="row" alignItems="center">
         <Button sx={{backgroundColor:"#fff2db", width:"100px", height:"100px", borderRadius:"50%"}}>
         <img src={item.icon} alt="icon" style={{width:"50px", height:"50px"}}/>
         </Button>
