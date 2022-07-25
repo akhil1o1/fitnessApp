@@ -3,12 +3,14 @@ import Pagination from "@mui/material/Pagination";
 import { Box, Stack, Typography } from "@mui/material";
 import { exerciseOptions, fetchData } from "../utils/fetchData";
 import ExerciseCard from "./ExerciseCard";
+import {TailSpin} from "react-loader-spinner";
 
 
 function Exercises ({setExercises, bodyPart, exercises}){
 
     
     const[currentPage, setCurrentPage] = useState(1);
+    const[loading, setLoading] = useState(true);
     
     const exercisePerPage = 9;
     const indexOfLastExercise = currentPage * exercisePerPage;
@@ -31,6 +33,7 @@ function Exercises ({setExercises, bodyPart, exercises}){
             }
             
             setExercises(exercisesData);
+            setLoading(false);
         }
 
         fetchExercisesData();
@@ -38,7 +41,7 @@ function Exercises ({setExercises, bodyPart, exercises}){
     },[bodyPart]);
 
 
-    return <Box id="exercises" 
+    return loading===false ? <Box id="exercises" 
     sx={{
         mt:{lg:"110px"}}}
         mt="50px"
@@ -70,7 +73,7 @@ function Exercises ({setExercises, bodyPart, exercises}){
             />}
         </Stack>
 
-    </Box>
+    </Box> : <Box display="flex" width="100%" height="100vh" alignItems="center" justifyContent="center"><TailSpin color="#000000" height={80} width={80} /></Box>
 
 }
 

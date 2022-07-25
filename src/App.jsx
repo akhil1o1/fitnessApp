@@ -6,7 +6,7 @@ import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 import ExerciseDetails from "./pages/ExerciseDetails";
 import Footer from "./components/Footer";
-
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import "./App.css";
 
 

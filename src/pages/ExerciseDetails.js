@@ -5,6 +5,7 @@ import {fetchData, exerciseOptions, youtubeOptions} from "../utils/fetchData";
 import Details from "../components/Details";
 import ExerciseVideos from "../components/ExerciseVideo";
 import SimilarExercises from "../components/SimilarExercises";
+import {TailSpin} from "react-loader-spinner";
 
 
 function ExerciseDetails(){
@@ -13,6 +14,7 @@ function ExerciseDetails(){
     const [exerciseVideos, setExerciseVideos] = useState([]);
     const [similarTargetExercises, setSimilarTargetExercises] = useState([]);
     const [similarEquipmentExercises, setSimilarEquipmentExercises] = useState([]);
+    const [loading, setLoading] = useState(true);
     const {id} = useParams();//it will find exercise id appended to url
     // console.log(exerciseDetail);
     // console.log(exerciseVideos);
@@ -37,6 +39,8 @@ function ExerciseDetails(){
             
             const similarEquipmentExercisesData = await fetchData(`https://exercisedb.p.rapidapi.com/exercises/equipment/${exerciseDetailData.equipment}`, exerciseOptions);
             setSimilarEquipmentExercises(similarEquipmentExercisesData);
+
+            setLoading(false);
              
         }
 
@@ -44,7 +48,7 @@ function ExerciseDetails(){
 
     },[id]);
 
-    return (
+    return loading===false ? (
         <Box>
             <Details
                 exerciseDetail={exerciseDetail}
@@ -58,7 +62,8 @@ function ExerciseDetails(){
                 similarEquipmentExercises={similarEquipmentExercises}
             />
         </Box>
-    )
+    ) : <Box width="100%" height="100vh" display="flex" alignItems="center" justifyContent="center">
+    <TailSpin color="#000000" height={80} width={80} /></Box>
 }
 
 
