@@ -43,8 +43,8 @@ function Exercises({ setExercises, bodyPart, exercises }) {
     };
 
     fetchExercisesData();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [bodyPart]);
+    
+  }, [bodyPart, setExercises]);
 
   return loading === false ? (
     <Box

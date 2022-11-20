@@ -66,6 +66,11 @@ body {
   .exercise-card-link{
     text-decoration: none;
   }
+
+  .exercise-card-link:hover{
+    transform: scale(1.1, 1.1);
+    transition: 0.3s all ease-in-out;
+  }
   
   .exercise-card {
     width: 350px;
@@ -91,7 +96,7 @@ body {
     transition: 0.3s all ease-in-out;
   }
   
-  .exercise-card:hover,
+  
   .bodyPart-card:hover {
     transform: scale(1.1, 1.1);
   }

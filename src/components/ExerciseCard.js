@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Button, Typography, Box } from "@mui/material";
+import { Typography, Box, Stack } from "@mui/material";
 
 function ExerciseCard({ exercise }) {
   return (
@@ -12,9 +12,10 @@ function ExerciseCard({ exercise }) {
           alt={exercise.name}
           loading="lazy"
         />
-        <Button
+        <Stack direction="row" spacing={5} pl="5%">
+        <Box
           sx={{
-            ml: "21px",
+            padding:"10px 13px",
             color: "#fff",
             fontSize: "14px",
             borderRadius: "20px",
@@ -23,10 +24,10 @@ function ExerciseCard({ exercise }) {
           }}
         >
           {exercise.bodyPart}
-        </Button>
-        <Button
+        </Box>
+        <Box
           sx={{
-            ml: "21px",
+            padding:"10px 15px",
             color: "#fff",
             fontSize: "14px",
             borderRadius: "20px",
@@ -35,7 +36,8 @@ function ExerciseCard({ exercise }) {
           }}
         >
           {exercise.target}
-        </Button>
+        </Box>
+        </Stack>
         <Typography
           ml="21px"
           color="#000"
